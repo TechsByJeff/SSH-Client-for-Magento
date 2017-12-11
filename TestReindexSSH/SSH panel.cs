@@ -241,11 +241,6 @@ namespace TestReindexSSH
             this.Close();
         }
 
-        private void lblMinimize_Click(object sender, EventArgs e)
-        {
-            WindowState = FormWindowState.Minimized;
-        }
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             mouseDown = true;
@@ -266,6 +261,11 @@ namespace TestReindexSSH
         private void panel1_MouseUp(object sender, MouseEventArgs e)
         {
             mouseDown = false;
+        }
+
+        private void lblMin_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Minimized;
         }
     }
 }

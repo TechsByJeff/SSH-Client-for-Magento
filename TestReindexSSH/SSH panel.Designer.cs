@@ -40,6 +40,7 @@
             this.btnLogout = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblMin = new System.Windows.Forms.Label();
             this.rTxtBoxOutput = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.txtBoxInput = new System.Windows.Forms.TextBox();
@@ -183,6 +184,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Teal;
+            this.panel1.Controls.Add(this.lblMin);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -192,6 +194,19 @@
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             this.panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseUp);
+            // 
+            // lblMin
+            // 
+            this.lblMin.AutoSize = true;
+            this.lblMin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblMin.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMin.ForeColor = System.Drawing.Color.White;
+            this.lblMin.Location = new System.Drawing.Point(586, 6);
+            this.lblMin.Name = "lblMin";
+            this.lblMin.Size = new System.Drawing.Size(15, 13);
+            this.lblMin.TabIndex = 11;
+            this.lblMin.Text = "--";
+            this.lblMin.Click += new System.EventHandler(this.lblMin_Click);
             // 
             // rTxtBoxOutput
             // 
@@ -428,7 +443,7 @@
             this.btnOverig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOverig.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOverig.ForeColor = System.Drawing.Color.White;
-            this.btnOverig.Location = new System.Drawing.Point(0, 133);
+            this.btnOverig.Location = new System.Drawing.Point(0, 127);
             this.btnOverig.Name = "btnOverig";
             this.btnOverig.Size = new System.Drawing.Size(184, 44);
             this.btnOverig.TabIndex = 0;
@@ -541,6 +556,7 @@
         private System.ComponentModel.BackgroundWorker backgroundWorker;
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.Label lblMin;
     }
 }
 
