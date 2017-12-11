@@ -82,6 +82,8 @@ namespace TestReindexSSH
             txtBoxPass.Enabled = true;
             txtBoxServerAddress.Enabled = true;
             btnLogin.Enabled = true;
+
+            pnlIndex.Visible = false;
         }
 
         private void check_data()
@@ -130,6 +132,9 @@ namespace TestReindexSSH
             btnReindexProduct_url.Enabled = false;
             btnReindexStock.Enabled = false;
             btnReindexProduct_Flat.Enabled = false;
+
+            lblStatus.Text = "Process is bezig... een moment geduld aub";
+            lblStatus.ForeColor = Color.Orange;
         }
 
         public void ReindexCommand()
@@ -153,6 +158,7 @@ namespace TestReindexSSH
 
         private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
+                        
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
