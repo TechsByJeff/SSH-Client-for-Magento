@@ -7,7 +7,7 @@ using System.Windows.Forms;
 
 // voor de output reader
 using System.IO;
-
+using System.Timers;
 
 namespace TestReindexSSH
 {
@@ -116,6 +116,8 @@ namespace TestReindexSSH
             Properties.Creditals.Default.Save();
         }
 
+    
+
         private void btnUitvoeren_Click(object sender, EventArgs e)
         {
             backgroundWorker.RunWorkerAsync();
@@ -158,7 +160,7 @@ namespace TestReindexSSH
 
         private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
-                        
+                        // Gonna work on this        
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
@@ -272,6 +274,18 @@ namespace TestReindexSSH
         private void lblMin_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
+        }
+    
+    //  private void countdown()
+    //  {
+    //      int timer = 0;
+    //      timer++;
+    //      lblTimerTick.Text = timer.ToString() + "seconden bezig";
+    //  }
+
+        private void btnOverig_Click(object sender, EventArgs e)
+        {
+         //   rTxtBoxOutput.Refresh(); werkt ook niet
         }
     }
 }

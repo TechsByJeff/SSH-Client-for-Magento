@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -63,6 +64,8 @@
             this.btnReindexShow = new System.Windows.Forms.Button();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.lblStatus = new System.Windows.Forms.Label();
+            this.refreshTimer = new System.Windows.Forms.Timer(this.components);
+            this.lblTimerTick = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.pnlIndex.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -447,8 +450,9 @@
             this.btnOverig.Name = "btnOverig";
             this.btnOverig.Size = new System.Drawing.Size(184, 44);
             this.btnOverig.TabIndex = 0;
-            this.btnOverig.Text = "iets anders";
+            this.btnOverig.Text = "Cron control";
             this.btnOverig.UseVisualStyleBackColor = true;
+            this.btnOverig.Click += new System.EventHandler(this.btnOverig_Click);
             // 
             // btnReindexShow
             // 
@@ -478,10 +482,19 @@
             // lblStatus
             // 
             this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(190, 570);
+            this.lblStatus.Location = new System.Drawing.Point(190, 199);
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 13);
             this.lblStatus.TabIndex = 19;
+            // 
+            // lblTimerTick
+            // 
+            this.lblTimerTick.AutoSize = true;
+            this.lblTimerTick.ForeColor = System.Drawing.Color.White;
+            this.lblTimerTick.Location = new System.Drawing.Point(187, 570);
+            this.lblTimerTick.Name = "lblTimerTick";
+            this.lblTimerTick.Size = new System.Drawing.Size(0, 13);
+            this.lblTimerTick.TabIndex = 20;
             // 
             // LoginForm
             // 
@@ -489,6 +502,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
             this.ClientSize = new System.Drawing.Size(629, 592);
+            this.Controls.Add(this.lblTimerTick);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.pnlIndex);
@@ -557,6 +571,8 @@
         private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.Label lblMin;
+        private System.Windows.Forms.Timer refreshTimer;
+        private System.Windows.Forms.Label lblTimerTick;
     }
 }
 
