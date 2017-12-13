@@ -1,13 +1,11 @@
 ﻿// Renci is voor de .net functies
 using Renci.SshNet;
-
 using System;
 using System.Drawing;
-using System.Windows.Forms;
 
 // voor de output reader
 using System.IO;
-using System.Timers;
+using System.Windows.Forms;
 
 namespace TestReindexSSH
 {
@@ -22,7 +20,6 @@ namespace TestReindexSSH
         private static string password = "";
         private static string username = "";
         private SshClient client;
-
 
         private Point lastLocation;
 
@@ -41,6 +38,7 @@ namespace TestReindexSSH
             password = txtBoxPass.Text;
             client = new SshClient(host, username, password);
         }
+
         // checkt
         private void btnLogin_Click(object sender, EventArgs e)
         {
@@ -56,17 +54,19 @@ namespace TestReindexSSH
 
             if (client.IsConnected)
             {
-                lblConnection.Text = "Verbonden";
+                lblConnection.Text = "Status : Verbonden";
                 lblConnection.ForeColor = Color.Green;
                 pnlIndex.Show();
                 txtBoxUsername.Enabled = false;
                 txtBoxPass.Enabled = false;
                 txtBoxServerAddress.Enabled = false;
                 btnLogin.Enabled = false;
+                btnReindexShow.Enabled = true;
+                btnOverig.Enabled = true;
             }
             else
             {
-                lblConnection.Text = "Niet verbonden";
+                lblConnection.Text = "Status : Niet verbonden";
                 lblConnection.ForeColor = Color.Red;
             }
         }
@@ -75,7 +75,7 @@ namespace TestReindexSSH
         {
             client.Disconnect();
             client.Dispose();
-            lblConnection.Text = "Niet verbonden";
+            lblConnection.Text = "Status : Niet verbonden";
             lblConnection.ForeColor = Color.Red;
 
             txtBoxUsername.Enabled = true;
@@ -116,12 +116,8 @@ namespace TestReindexSSH
             Properties.Creditals.Default.Save();
         }
 
-    
-
         private void btnUitvoeren_Click(object sender, EventArgs e)
         {
-            backgroundWorker.RunWorkerAsync();
-
             btnCmd1.Enabled = false;
             btnLogin.Enabled = false;
             btnLogout.Enabled = false;
@@ -134,6 +130,9 @@ namespace TestReindexSSH
             btnReindexProduct_url.Enabled = false;
             btnReindexStock.Enabled = false;
             btnReindexProduct_Flat.Enabled = false;
+
+            rTxtBoxOutput.Text = "";
+            backgroundWorker.RunWorkerAsync();
 
             lblStatus.Text = "Process is bezig... een moment geduld aub";
             lblStatus.ForeColor = Color.Orange;
@@ -160,7 +159,7 @@ namespace TestReindexSSH
 
         private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
-                        // Gonna work on this        
+            // Gonna work on this
         }
 
         private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
@@ -234,7 +233,15 @@ namespace TestReindexSSH
 
         private void btnReindexShow_Click(object sender, EventArgs e)
         {
-            pnlIndex.Show();
+            if (client.IsConnected)
+            {
+                pnlIndex.Show();
+            }
+            else
+            {
+
+            }
+            
         }
 
         private void lblClose_Click(object sender, EventArgs e)
@@ -275,17 +282,30 @@ namespace TestReindexSSH
         {
             WindowState = FormWindowState.Minimized;
         }
-    
-    //  private void countdown()
-    //  {
-    //      int timer = 0;
-    //      timer++;
-    //      lblTimerTick.Text = timer.ToString() + "seconden bezig";
-    //  }
+
+        /*       private void countdown()
+              {
+                  int timer = 0;
+                  timer++;
+                  lblTimerTick.Text = timer.ToString() + "seconden bezig";
+              }                                                                   */
 
         private void btnOverig_Click(object sender, EventArgs e)
         {
-         //   rTxtBoxOutput.Refresh(); werkt ook niet
+            //   rTxtBoxOutput.Refresh(); werkt ook niet
+        }
+
+        //Voegd schadow toe
+        private const int CS_DROPSHADOW = 0x00020000;
+
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
         }
     }
 }

@@ -59,13 +59,13 @@
             this.pnlIndex = new System.Windows.Forms.Panel();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnOverig = new System.Windows.Forms.Button();
-            this.btnReindexShow = new System.Windows.Forms.Button();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.lblStatus = new System.Windows.Forms.Label();
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.lblTimerTick = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnReindexShow = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlIndex.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -153,10 +153,12 @@
             // lblConnection
             // 
             this.lblConnection.AutoSize = true;
-            this.lblConnection.Location = new System.Drawing.Point(398, 115);
+            this.lblConnection.ForeColor = System.Drawing.Color.White;
+            this.lblConnection.Location = new System.Drawing.Point(186, 135);
             this.lblConnection.Name = "lblConnection";
-            this.lblConnection.Size = new System.Drawing.Size(0, 13);
+            this.lblConnection.Size = new System.Drawing.Size(43, 13);
             this.lblConnection.TabIndex = 7;
+            this.lblConnection.Text = "Status :";
             // 
             // btnLogout
             // 
@@ -213,8 +215,12 @@
             // 
             // rTxtBoxOutput
             // 
+            this.rTxtBoxOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.rTxtBoxOutput.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rTxtBoxOutput.Location = new System.Drawing.Point(190, 223);
             this.rTxtBoxOutput.Name = "rTxtBoxOutput";
+            this.rTxtBoxOutput.ReadOnly = true;
+            this.rTxtBoxOutput.ShortcutsEnabled = false;
             this.rTxtBoxOutput.Size = new System.Drawing.Size(430, 207);
             this.rTxtBoxOutput.TabIndex = 0;
             this.rTxtBoxOutput.TabStop = false;
@@ -386,7 +392,7 @@
             this.btnReindexCatalogUrl.Size = new System.Drawing.Size(102, 23);
             this.btnReindexCatalogUrl.TabIndex = 0;
             this.btnReindexCatalogUrl.TabStop = false;
-            this.btnReindexCatalogUrl.Text = "tagSummary";
+            this.btnReindexCatalogUrl.Text = "catalog_url";
             this.btnReindexCatalogUrl.UseVisualStyleBackColor = false;
             this.btnReindexCatalogUrl.Click += new System.EventHandler(this.btnReindexCatalogUrl_Click);
             // 
@@ -426,17 +432,6 @@
             this.panel2.Size = new System.Drawing.Size(184, 581);
             this.panel2.TabIndex = 18;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Teal;
-            this.pictureBox1.Image = global::TestReindexSSH.Properties.Resources.Questcontrol_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 82);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnOverig
             // 
             this.btnOverig.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -446,30 +441,13 @@
             this.btnOverig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOverig.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOverig.ForeColor = System.Drawing.Color.White;
-            this.btnOverig.Location = new System.Drawing.Point(0, 127);
+            this.btnOverig.Location = new System.Drawing.Point(1, 44);
             this.btnOverig.Name = "btnOverig";
             this.btnOverig.Size = new System.Drawing.Size(184, 44);
             this.btnOverig.TabIndex = 0;
             this.btnOverig.Text = "Cron control";
             this.btnOverig.UseVisualStyleBackColor = true;
             this.btnOverig.Click += new System.EventHandler(this.btnOverig_Click);
-            // 
-            // btnReindexShow
-            // 
-            this.btnReindexShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReindexShow.FlatAppearance.BorderSize = 0;
-            this.btnReindexShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnReindexShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnReindexShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReindexShow.ForeColor = System.Drawing.Color.White;
-            this.btnReindexShow.Location = new System.Drawing.Point(0, 83);
-            this.btnReindexShow.Name = "btnReindexShow";
-            this.btnReindexShow.Size = new System.Drawing.Size(184, 44);
-            this.btnReindexShow.TabIndex = 0;
-            this.btnReindexShow.Text = "Herindexeren";
-            this.btnReindexShow.UseVisualStyleBackColor = true;
-            this.btnReindexShow.Click += new System.EventHandler(this.btnReindexShow_Click);
             // 
             // backgroundWorker
             // 
@@ -496,12 +474,43 @@
             this.lblTimerTick.Size = new System.Drawing.Size(0, 13);
             this.lblTimerTick.TabIndex = 20;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Teal;
+            this.pictureBox1.Image = global::TestReindexSSH.Properties.Resources.Questcontrol_Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 463);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(184, 82);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnReindexShow
+            // 
+            this.btnReindexShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReindexShow.FlatAppearance.BorderSize = 0;
+            this.btnReindexShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnReindexShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnReindexShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReindexShow.ForeColor = System.Drawing.Color.White;
+            this.btnReindexShow.Image = global::TestReindexSSH.Properties.Resources.icons8_upload_50;
+            this.btnReindexShow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReindexShow.Location = new System.Drawing.Point(1, 0);
+            this.btnReindexShow.Name = "btnReindexShow";
+            this.btnReindexShow.Size = new System.Drawing.Size(184, 44);
+            this.btnReindexShow.TabIndex = 0;
+            this.btnReindexShow.Text = "Herindexeren";
+            this.btnReindexShow.UseVisualStyleBackColor = true;
+            this.btnReindexShow.Click += new System.EventHandler(this.btnReindexShow_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
-            this.ClientSize = new System.Drawing.Size(629, 592);
+            this.ClientSize = new System.Drawing.Size(629, 567);
+            this.Controls.Add(this.lblConnection);
             this.Controls.Add(this.lblTimerTick);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.panel2);
@@ -511,7 +520,6 @@
             this.Controls.Add(this.rTxtBoxOutput);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnLogout);
-            this.Controls.Add(this.lblConnection);
             this.Controls.Add(this.cBoxRememberMe);
             this.Controls.Add(this.txtBoxPass);
             this.Controls.Add(this.txtBoxUsername);
