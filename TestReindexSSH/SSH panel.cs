@@ -16,9 +16,9 @@ namespace TestReindexSSH
             InitializeComponent();
         }
 
-        private static string host = "";
-        private static string password = "";
-        private static string username = "";
+        string host = "";
+        string password = "";
+        string username = "";
         private SshClient client;
 
         private Point lastLocation;
@@ -27,7 +27,6 @@ namespace TestReindexSSH
 
         private void LoginForm_Load(object sender, EventArgs e)
         {
-            pnlIndex.Hide();
             check_data();
         }
 
@@ -39,7 +38,7 @@ namespace TestReindexSSH
             client = new SshClient(host, username, password);
         }
 
-        // checkt
+       
         private void btnLogin_Click(object sender, EventArgs e)
         {
             setSsh();
@@ -118,19 +117,6 @@ namespace TestReindexSSH
 
         private void btnUitvoeren_Click(object sender, EventArgs e)
         {
-            btnCmd1.Enabled = false;
-            btnLogin.Enabled = false;
-            btnLogout.Enabled = false;
-            btnReindexCatalogSearchFullText.Enabled = false;
-            btnReindexCatalogUrl.Enabled = false;
-            btnReindexCategory_Flat.Enabled = false;
-            btnReindexCategory_product.Enabled = false;
-            btnReindexProduct_Attribute.Enabled = false;
-            btnReindexProduct_price.Enabled = false;
-            btnReindexProduct_url.Enabled = false;
-            btnReindexStock.Enabled = false;
-            btnReindexProduct_Flat.Enabled = false;
-
             rTxtBoxOutput.Text = "";
             backgroundWorker.RunWorkerAsync();
 
@@ -159,10 +145,10 @@ namespace TestReindexSSH
 
         private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
-            // Gonna work on this
         }
 
-        private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        // Zet alle knoppen aan
+        private void EnableButtons()
         {
             btnCmd1.Enabled = true;
             btnLogin.Enabled = true;
@@ -176,6 +162,28 @@ namespace TestReindexSSH
             btnReindexProduct_url.Enabled = true;
             btnReindexStock.Enabled = true;
             btnReindexProduct_Flat.Enabled = true;
+        }
+
+        // Zet alle knoppen uit
+        private void DisableButtons()
+        {
+            btnCmd1.Enabled = false;
+            btnLogin.Enabled = false;
+            btnLogout.Enabled = false;
+            btnReindexCatalogSearchFullText.Enabled = false;
+            btnReindexCatalogUrl.Enabled = false;
+            btnReindexCategory_Flat.Enabled = false;
+            btnReindexCategory_product.Enabled = false;
+            btnReindexProduct_Attribute.Enabled = false;
+            btnReindexProduct_price.Enabled = false;
+            btnReindexProduct_url.Enabled = false;
+            btnReindexStock.Enabled = false;
+            btnReindexProduct_Flat.Enabled = false;
+        }
+
+        private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
+        {
+            EnableButtons();
 
             lblStatus.Text = "Process Compleet";
             lblStatus.ForeColor = Color.Green;
@@ -239,9 +247,7 @@ namespace TestReindexSSH
             }
             else
             {
-
             }
-            
         }
 
         private void lblClose_Click(object sender, EventArgs e)
@@ -292,7 +298,7 @@ namespace TestReindexSSH
 
         private void btnOverig_Click(object sender, EventArgs e)
         {
-            //   rTxtBoxOutput.Refresh(); werkt ook niet
+            // rTxtBoxOutput.Refresh(); werkt ook niet
         }
 
         //Voegd schadow toe

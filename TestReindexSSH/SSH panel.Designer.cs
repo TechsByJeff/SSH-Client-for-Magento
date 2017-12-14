@@ -59,13 +59,13 @@
             this.pnlIndex = new System.Windows.Forms.Panel();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnOverig = new System.Windows.Forms.Button();
+            this.btnReindexShow = new System.Windows.Forms.Button();
             this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
             this.lblStatus = new System.Windows.Forms.Label();
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.lblTimerTick = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnReindexShow = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlIndex.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -413,6 +413,7 @@
             this.pnlIndex.Name = "pnlIndex";
             this.pnlIndex.Size = new System.Drawing.Size(430, 124);
             this.pnlIndex.TabIndex = 17;
+            this.pnlIndex.Visible = false;
             // 
             // progressBar
             // 
@@ -432,6 +433,18 @@
             this.panel2.Size = new System.Drawing.Size(184, 581);
             this.panel2.TabIndex = 18;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.Teal;
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pictureBox1.Image = global::TestReindexSSH.Properties.Resources.Questcontrol_Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(184, 82);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // btnOverig
             // 
             this.btnOverig.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -441,13 +454,32 @@
             this.btnOverig.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOverig.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnOverig.ForeColor = System.Drawing.Color.White;
-            this.btnOverig.Location = new System.Drawing.Point(1, 44);
+            this.btnOverig.Location = new System.Drawing.Point(0, 126);
             this.btnOverig.Name = "btnOverig";
             this.btnOverig.Size = new System.Drawing.Size(184, 44);
             this.btnOverig.TabIndex = 0;
             this.btnOverig.Text = "Cron control";
             this.btnOverig.UseVisualStyleBackColor = true;
             this.btnOverig.Click += new System.EventHandler(this.btnOverig_Click);
+            // 
+            // btnReindexShow
+            // 
+            this.btnReindexShow.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnReindexShow.FlatAppearance.BorderSize = 0;
+            this.btnReindexShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btnReindexShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnReindexShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnReindexShow.ForeColor = System.Drawing.Color.White;
+            this.btnReindexShow.Image = global::TestReindexSSH.Properties.Resources.icons8_upload_50;
+            this.btnReindexShow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReindexShow.Location = new System.Drawing.Point(0, 82);
+            this.btnReindexShow.Name = "btnReindexShow";
+            this.btnReindexShow.Size = new System.Drawing.Size(184, 44);
+            this.btnReindexShow.TabIndex = 0;
+            this.btnReindexShow.Text = "Herindexeren";
+            this.btnReindexShow.UseVisualStyleBackColor = true;
+            this.btnReindexShow.Click += new System.EventHandler(this.btnReindexShow_Click);
             // 
             // backgroundWorker
             // 
@@ -473,36 +505,6 @@
             this.lblTimerTick.Name = "lblTimerTick";
             this.lblTimerTick.Size = new System.Drawing.Size(0, 13);
             this.lblTimerTick.TabIndex = 20;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Teal;
-            this.pictureBox1.Image = global::TestReindexSSH.Properties.Resources.Questcontrol_Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 463);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(184, 82);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
-            // btnReindexShow
-            // 
-            this.btnReindexShow.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnReindexShow.FlatAppearance.BorderSize = 0;
-            this.btnReindexShow.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btnReindexShow.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
-            this.btnReindexShow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexShow.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnReindexShow.ForeColor = System.Drawing.Color.White;
-            this.btnReindexShow.Image = global::TestReindexSSH.Properties.Resources.icons8_upload_50;
-            this.btnReindexShow.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnReindexShow.Location = new System.Drawing.Point(1, 0);
-            this.btnReindexShow.Name = "btnReindexShow";
-            this.btnReindexShow.Size = new System.Drawing.Size(184, 44);
-            this.btnReindexShow.TabIndex = 0;
-            this.btnReindexShow.Text = "Herindexeren";
-            this.btnReindexShow.UseVisualStyleBackColor = true;
-            this.btnReindexShow.Click += new System.EventHandler(this.btnReindexShow_Click);
             // 
             // LoginForm
             // 
