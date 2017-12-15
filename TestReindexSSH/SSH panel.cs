@@ -2,6 +2,7 @@
 using Renci.SshNet;
 using System;
 using System.Drawing;
+using System.Text;
 
 // voor de output reader
 using System.IO;
@@ -16,10 +17,11 @@ namespace TestReindexSSH
             InitializeComponent();
         }
 
-        string host = "";
-        string password = "";
-        string username = "";
-        private SshClient client;
+        string host ;
+        string password ;
+        string username ;
+        string connection;
+        int port = 22;
 
         private Point lastLocation;
 
@@ -30,28 +32,16 @@ namespace TestReindexSSH
             check_data();
         }
 
-        private void setSsh()
+       
+        private void btnLogin_Click(object sender, EventArgs e)
         {
             host = txtBoxServerAddress.Text;
             username = txtBoxUsername.Text;
             password = txtBoxPass.Text;
-            client = new SshClient(host, username, password);
-        }
 
-       
-        private void btnLogin_Click(object sender, EventArgs e)
-        {
-            setSsh();
-            try
-            {
-                client.Connect();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("De inloggegevens zijn mogelijk verkeerd, probeer het opnieuw" + ex.Message);
-            }
+            SSH.connect(host, port, username, password);
 
-            if (client.IsConnected)
+            if (SSH.client.IsConnected)
             {
                 lblConnection.Text = "Status : Verbonden";
                 lblConnection.ForeColor = Color.Green;
@@ -72,8 +62,8 @@ namespace TestReindexSSH
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            client.Disconnect();
-            client.Dispose();
+            SSH.disconnect();
+
             lblConnection.Text = "Status : Niet verbonden";
             lblConnection.ForeColor = Color.Red;
 
@@ -81,10 +71,13 @@ namespace TestReindexSSH
             txtBoxPass.Enabled = true;
             txtBoxServerAddress.Enabled = true;
             btnLogin.Enabled = true;
-
             pnlIndex.Visible = false;
         }
 
+        /* kijkt of de gebruikersgegevens zijn opgeslagen
+         als het true is, haalt hij de vorige gegevens op en zet hij ze in de textboxes.
+         Zoniet, dan leegt hij die en zet hij de checkbox op false
+          */
         private void check_data()
         {
             if (Properties.Creditals.Default.rememberme == true)
@@ -102,7 +95,7 @@ namespace TestReindexSSH
                 cBoxRememberMe.Checked = false;
             }
         }
-
+        // Als de checkbox word aangevinked slaat hij de data op.
         private void opgeslagen_data()
         {
             if (cBoxRememberMe.Checked)
@@ -115,6 +108,7 @@ namespace TestReindexSSH
             Properties.Creditals.Default.Save();
         }
 
+        // leegt txtOutput en voert het commando aan en zet de backgroundworker aan.
         private void btnUitvoeren_Click(object sender, EventArgs e)
         {
             rTxtBoxOutput.Text = "";
@@ -124,27 +118,30 @@ namespace TestReindexSSH
             lblStatus.ForeColor = Color.Orange;
         }
 
-        public void ReindexCommand()
+        // stuurt de commando 
+        public void ExecuteCommand()
         {
-            var cmd = client.CreateCommand(txtBoxInput.Text);
+            var cmd = SSH.client.CreateCommand(txtBoxInput.Text);
             var result = cmd.Execute();
             this.Invoke(new Action(() =>
             {
-                rTxtBoxOutput.Text += result;
-
+                rTxtBoxOutput.Text += result.ToString();
+           
                 var reader = new StreamReader(cmd.ExtendedOutputStream);
                 rTxtBoxOutput.Text += "\n" + reader.ReadToEnd();
             }
              ));
-        }
+
+    }
 
         public void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
-            ReindexCommand();
+            ExecuteCommand();
         }
 
         private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
+            // moet hier nog aan werken
         }
 
         // Zet alle knoppen aan
@@ -241,21 +238,14 @@ namespace TestReindexSSH
 
         private void btnReindexShow_Click(object sender, EventArgs e)
         {
-            if (client.IsConnected)
-            {
-                pnlIndex.Show();
-            }
-            else
-            {
-            }
+            //komt later
         }
 
         private void lblClose_Click(object sender, EventArgs e)
         {
             try
             {
-                client.Disconnect();
-                client.Dispose();
+                SSH.disconnect();
             }
             catch { }
             opgeslagen_data();
@@ -301,17 +291,6 @@ namespace TestReindexSSH
             // rTxtBoxOutput.Refresh(); werkt ook niet
         }
 
-        //Voegd schadow toe
-        private const int CS_DROPSHADOW = 0x00020000;
-
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ClassStyle |= CS_DROPSHADOW;
-                return cp;
-            }
-        }
+       
     }
 }

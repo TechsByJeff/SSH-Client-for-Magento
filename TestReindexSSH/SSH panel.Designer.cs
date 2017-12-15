@@ -47,15 +47,6 @@
             this.txtBoxInput = new System.Windows.Forms.TextBox();
             this.lblCommandText = new System.Windows.Forms.Label();
             this.btnCmd1 = new System.Windows.Forms.Button();
-            this.btnReindexProduct_Attribute = new System.Windows.Forms.Button();
-            this.btnReindexProduct_price = new System.Windows.Forms.Button();
-            this.btnReindexProduct_url = new System.Windows.Forms.Button();
-            this.btnReindexProduct_Flat = new System.Windows.Forms.Button();
-            this.btnReindexCategory_Flat = new System.Windows.Forms.Button();
-            this.btnReindexCategory_product = new System.Windows.Forms.Button();
-            this.btnReindexCatalogSearchFullText = new System.Windows.Forms.Button();
-            this.btnReindexStock = new System.Windows.Forms.Button();
-            this.btnReindexCatalogUrl = new System.Windows.Forms.Button();
             this.pnlIndex = new System.Windows.Forms.Panel();
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -66,6 +57,15 @@
             this.lblStatus = new System.Windows.Forms.Label();
             this.refreshTimer = new System.Windows.Forms.Timer(this.components);
             this.lblTimerTick = new System.Windows.Forms.Label();
+            this.btnReindexCatalogSearchFullText = new System.Windows.Forms.Button();
+            this.btnReindexProduct_url = new System.Windows.Forms.Button();
+            this.btnReindexCategory_Flat = new System.Windows.Forms.Button();
+            this.btnReindexProduct_Flat = new System.Windows.Forms.Button();
+            this.btnReindexCategory_product = new System.Windows.Forms.Button();
+            this.btnReindexProduct_price = new System.Windows.Forms.Button();
+            this.btnReindexStock = new System.Windows.Forms.Button();
+            this.btnReindexProduct_Attribute = new System.Windows.Forms.Button();
+            this.btnReindexCatalogUrl = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.pnlIndex.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -75,7 +75,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ForeColor = System.Drawing.Color.Black;
             this.label2.Location = new System.Drawing.Point(187, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(69, 13);
@@ -85,7 +85,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ForeColor = System.Drawing.Color.Black;
             this.label3.Location = new System.Drawing.Point(187, 59);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(84, 13);
@@ -95,7 +95,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.ForeColor = System.Drawing.Color.Black;
             this.label4.Location = new System.Drawing.Point(187, 86);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(68, 13);
@@ -104,9 +104,11 @@
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.White;
+            this.btnLogin.BackColor = System.Drawing.Color.Teal;
+            this.btnLogin.FlatAppearance.BorderSize = 0;
             this.btnLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnLogin.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogin.ForeColor = System.Drawing.Color.White;
             this.btnLogin.Location = new System.Drawing.Point(531, 54);
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Size = new System.Drawing.Size(89, 23);
@@ -117,7 +119,6 @@
             // 
             // txtBoxServerAddress
             // 
-            this.txtBoxServerAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBoxServerAddress.Location = new System.Drawing.Point(293, 30);
             this.txtBoxServerAddress.Name = "txtBoxServerAddress";
             this.txtBoxServerAddress.Size = new System.Drawing.Size(327, 20);
@@ -125,7 +126,6 @@
             // 
             // txtBoxUsername
             // 
-            this.txtBoxUsername.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBoxUsername.Location = new System.Drawing.Point(293, 56);
             this.txtBoxUsername.Name = "txtBoxUsername";
             this.txtBoxUsername.Size = new System.Drawing.Size(232, 20);
@@ -133,16 +133,16 @@
             // 
             // txtBoxPass
             // 
-            this.txtBoxPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtBoxPass.Location = new System.Drawing.Point(293, 84);
             this.txtBoxPass.Name = "txtBoxPass";
+            this.txtBoxPass.PasswordChar = '*';
             this.txtBoxPass.Size = new System.Drawing.Size(232, 20);
             this.txtBoxPass.TabIndex = 3;
             // 
             // cBoxRememberMe
             // 
             this.cBoxRememberMe.AutoSize = true;
-            this.cBoxRememberMe.ForeColor = System.Drawing.Color.White;
+            this.cBoxRememberMe.ForeColor = System.Drawing.Color.Black;
             this.cBoxRememberMe.Location = new System.Drawing.Point(190, 115);
             this.cBoxRememberMe.Name = "cBoxRememberMe";
             this.cBoxRememberMe.Size = new System.Drawing.Size(139, 17);
@@ -153,7 +153,7 @@
             // lblConnection
             // 
             this.lblConnection.AutoSize = true;
-            this.lblConnection.ForeColor = System.Drawing.Color.White;
+            this.lblConnection.ForeColor = System.Drawing.Color.Black;
             this.lblConnection.Location = new System.Drawing.Point(186, 135);
             this.lblConnection.Name = "lblConnection";
             this.lblConnection.Size = new System.Drawing.Size(43, 13);
@@ -162,9 +162,11 @@
             // 
             // btnLogout
             // 
-            this.btnLogout.BackColor = System.Drawing.Color.White;
+            this.btnLogout.BackColor = System.Drawing.Color.Teal;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
             this.btnLogout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.ForeColor = System.Drawing.Color.White;
             this.btnLogout.Location = new System.Drawing.Point(531, 81);
             this.btnLogout.Name = "btnLogout";
             this.btnLogout.Size = new System.Drawing.Size(89, 23);
@@ -215,7 +217,6 @@
             // 
             // rTxtBoxOutput
             // 
-            this.rTxtBoxOutput.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.rTxtBoxOutput.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.rTxtBoxOutput.Location = new System.Drawing.Point(190, 223);
             this.rTxtBoxOutput.Name = "rTxtBoxOutput";
@@ -228,9 +229,11 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackColor = System.Drawing.Color.Teal;
+            this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.White;
             this.button1.Location = new System.Drawing.Point(545, 194);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -249,7 +252,7 @@
             // lblCommandText
             // 
             this.lblCommandText.AutoSize = true;
-            this.lblCommandText.ForeColor = System.Drawing.Color.White;
+            this.lblCommandText.ForeColor = System.Drawing.Color.Black;
             this.lblCommandText.Location = new System.Drawing.Point(187, 152);
             this.lblCommandText.Name = "lblCommandText";
             this.lblCommandText.Size = new System.Drawing.Size(132, 13);
@@ -258,9 +261,11 @@
             // 
             // btnCmd1
             // 
-            this.btnCmd1.BackColor = System.Drawing.Color.White;
+            this.btnCmd1.BackColor = System.Drawing.Color.Teal;
+            this.btnCmd1.FlatAppearance.BorderSize = 0;
             this.btnCmd1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
             this.btnCmd1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCmd1.ForeColor = System.Drawing.Color.White;
             this.btnCmd1.Location = new System.Drawing.Point(0, 3);
             this.btnCmd1.Name = "btnCmd1";
             this.btnCmd1.Size = new System.Drawing.Size(427, 23);
@@ -269,132 +274,6 @@
             this.btnCmd1.Text = "reindex all";
             this.btnCmd1.UseVisualStyleBackColor = false;
             this.btnCmd1.Click += new System.EventHandler(this.btnReindexAll_Click);
-            // 
-            // btnReindexProduct_Attribute
-            // 
-            this.btnReindexProduct_Attribute.BackColor = System.Drawing.Color.White;
-            this.btnReindexProduct_Attribute.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnReindexProduct_Attribute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexProduct_Attribute.Location = new System.Drawing.Point(1, 32);
-            this.btnReindexProduct_Attribute.Name = "btnReindexProduct_Attribute";
-            this.btnReindexProduct_Attribute.Size = new System.Drawing.Size(102, 23);
-            this.btnReindexProduct_Attribute.TabIndex = 0;
-            this.btnReindexProduct_Attribute.TabStop = false;
-            this.btnReindexProduct_Attribute.Text = "product_attribute";
-            this.btnReindexProduct_Attribute.UseVisualStyleBackColor = false;
-            this.btnReindexProduct_Attribute.Click += new System.EventHandler(this.btnProductAttribuut_Click);
-            // 
-            // btnReindexProduct_price
-            // 
-            this.btnReindexProduct_price.BackColor = System.Drawing.Color.White;
-            this.btnReindexProduct_price.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnReindexProduct_price.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexProduct_price.Location = new System.Drawing.Point(110, 32);
-            this.btnReindexProduct_price.Name = "btnReindexProduct_price";
-            this.btnReindexProduct_price.Size = new System.Drawing.Size(102, 23);
-            this.btnReindexProduct_price.TabIndex = 0;
-            this.btnReindexProduct_price.TabStop = false;
-            this.btnReindexProduct_price.Text = "product_price";
-            this.btnReindexProduct_price.UseVisualStyleBackColor = false;
-            this.btnReindexProduct_price.Click += new System.EventHandler(this.btnReindexProduct_price_Click);
-            // 
-            // btnReindexProduct_url
-            // 
-            this.btnReindexProduct_url.BackColor = System.Drawing.Color.White;
-            this.btnReindexProduct_url.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnReindexProduct_url.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexProduct_url.Location = new System.Drawing.Point(218, 32);
-            this.btnReindexProduct_url.Name = "btnReindexProduct_url";
-            this.btnReindexProduct_url.Size = new System.Drawing.Size(102, 23);
-            this.btnReindexProduct_url.TabIndex = 0;
-            this.btnReindexProduct_url.TabStop = false;
-            this.btnReindexProduct_url.Text = "product_url";
-            this.btnReindexProduct_url.UseVisualStyleBackColor = false;
-            this.btnReindexProduct_url.Click += new System.EventHandler(this.btnReindexProduct_url_Click);
-            // 
-            // btnReindexProduct_Flat
-            // 
-            this.btnReindexProduct_Flat.BackColor = System.Drawing.Color.White;
-            this.btnReindexProduct_Flat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnReindexProduct_Flat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexProduct_Flat.Location = new System.Drawing.Point(326, 32);
-            this.btnReindexProduct_Flat.Name = "btnReindexProduct_Flat";
-            this.btnReindexProduct_Flat.Size = new System.Drawing.Size(102, 23);
-            this.btnReindexProduct_Flat.TabIndex = 0;
-            this.btnReindexProduct_Flat.TabStop = false;
-            this.btnReindexProduct_Flat.Text = "product_flat";
-            this.btnReindexProduct_Flat.UseVisualStyleBackColor = false;
-            this.btnReindexProduct_Flat.Click += new System.EventHandler(this.btnReindexProduct_Flat_Click);
-            // 
-            // btnReindexCategory_Flat
-            // 
-            this.btnReindexCategory_Flat.BackColor = System.Drawing.Color.White;
-            this.btnReindexCategory_Flat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnReindexCategory_Flat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexCategory_Flat.Location = new System.Drawing.Point(1, 61);
-            this.btnReindexCategory_Flat.Name = "btnReindexCategory_Flat";
-            this.btnReindexCategory_Flat.Size = new System.Drawing.Size(102, 23);
-            this.btnReindexCategory_Flat.TabIndex = 0;
-            this.btnReindexCategory_Flat.TabStop = false;
-            this.btnReindexCategory_Flat.Text = "category_flat";
-            this.btnReindexCategory_Flat.UseVisualStyleBackColor = false;
-            this.btnReindexCategory_Flat.Click += new System.EventHandler(this.btnReindexCategory_Flat_Click);
-            // 
-            // btnReindexCategory_product
-            // 
-            this.btnReindexCategory_product.BackColor = System.Drawing.Color.White;
-            this.btnReindexCategory_product.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnReindexCategory_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexCategory_product.Location = new System.Drawing.Point(110, 61);
-            this.btnReindexCategory_product.Name = "btnReindexCategory_product";
-            this.btnReindexCategory_product.Size = new System.Drawing.Size(102, 23);
-            this.btnReindexCategory_product.TabIndex = 0;
-            this.btnReindexCategory_product.TabStop = false;
-            this.btnReindexCategory_product.Text = "category_product";
-            this.btnReindexCategory_product.UseVisualStyleBackColor = false;
-            this.btnReindexCategory_product.Click += new System.EventHandler(this.btnReindexCategory_product_Click);
-            // 
-            // btnReindexCatalogSearchFullText
-            // 
-            this.btnReindexCatalogSearchFullText.BackColor = System.Drawing.Color.White;
-            this.btnReindexCatalogSearchFullText.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnReindexCatalogSearchFullText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexCatalogSearchFullText.Location = new System.Drawing.Point(218, 61);
-            this.btnReindexCatalogSearchFullText.Name = "btnReindexCatalogSearchFullText";
-            this.btnReindexCatalogSearchFullText.Size = new System.Drawing.Size(102, 23);
-            this.btnReindexCatalogSearchFullText.TabIndex = 0;
-            this.btnReindexCatalogSearchFullText.TabStop = false;
-            this.btnReindexCatalogSearchFullText.Text = "fulltext";
-            this.btnReindexCatalogSearchFullText.UseVisualStyleBackColor = false;
-            this.btnReindexCatalogSearchFullText.Click += new System.EventHandler(this.btnReindexCatalogSearchFullText_Click);
-            // 
-            // btnReindexStock
-            // 
-            this.btnReindexStock.BackColor = System.Drawing.Color.White;
-            this.btnReindexStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnReindexStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexStock.Location = new System.Drawing.Point(326, 61);
-            this.btnReindexStock.Name = "btnReindexStock";
-            this.btnReindexStock.Size = new System.Drawing.Size(102, 23);
-            this.btnReindexStock.TabIndex = 0;
-            this.btnReindexStock.TabStop = false;
-            this.btnReindexStock.Text = "stock";
-            this.btnReindexStock.UseVisualStyleBackColor = false;
-            this.btnReindexStock.Click += new System.EventHandler(this.btnReindexStock_Click);
-            // 
-            // btnReindexCatalogUrl
-            // 
-            this.btnReindexCatalogUrl.BackColor = System.Drawing.Color.White;
-            this.btnReindexCatalogUrl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.btnReindexCatalogUrl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnReindexCatalogUrl.Location = new System.Drawing.Point(1, 90);
-            this.btnReindexCatalogUrl.Name = "btnReindexCatalogUrl";
-            this.btnReindexCatalogUrl.Size = new System.Drawing.Size(102, 23);
-            this.btnReindexCatalogUrl.TabIndex = 0;
-            this.btnReindexCatalogUrl.TabStop = false;
-            this.btnReindexCatalogUrl.Text = "catalog_url";
-            this.btnReindexCatalogUrl.UseVisualStyleBackColor = false;
-            this.btnReindexCatalogUrl.Click += new System.EventHandler(this.btnReindexCatalogUrl_Click);
             // 
             // pnlIndex
             // 
@@ -424,7 +303,7 @@
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(34)))), ((int)(((byte)(34)))));
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(56)))), ((int)(((byte)(56)))), ((int)(((byte)(56)))));
             this.panel2.Controls.Add(this.pictureBox1);
             this.panel2.Controls.Add(this.btnOverig);
             this.panel2.Controls.Add(this.btnReindexShow);
@@ -506,11 +385,155 @@
             this.lblTimerTick.Size = new System.Drawing.Size(0, 13);
             this.lblTimerTick.TabIndex = 20;
             // 
+            // btnReindexCatalogSearchFullText
+            // 
+            this.btnReindexCatalogSearchFullText.BackColor = System.Drawing.Color.Teal;
+            this.btnReindexCatalogSearchFullText.FlatAppearance.BorderSize = 0;
+            this.btnReindexCatalogSearchFullText.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnReindexCatalogSearchFullText.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexCatalogSearchFullText.ForeColor = System.Drawing.Color.White;
+            this.btnReindexCatalogSearchFullText.Location = new System.Drawing.Point(218, 61);
+            this.btnReindexCatalogSearchFullText.Name = "btnReindexCatalogSearchFullText";
+            this.btnReindexCatalogSearchFullText.Size = new System.Drawing.Size(102, 23);
+            this.btnReindexCatalogSearchFullText.TabIndex = 0;
+            this.btnReindexCatalogSearchFullText.TabStop = false;
+            this.btnReindexCatalogSearchFullText.Text = "fulltext";
+            this.btnReindexCatalogSearchFullText.UseVisualStyleBackColor = false;
+            this.btnReindexCatalogSearchFullText.Click += new System.EventHandler(this.btnReindexCatalogSearchFullText_Click);
+            // 
+            // btnReindexProduct_url
+            // 
+            this.btnReindexProduct_url.BackColor = System.Drawing.Color.Teal;
+            this.btnReindexProduct_url.FlatAppearance.BorderSize = 0;
+            this.btnReindexProduct_url.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnReindexProduct_url.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexProduct_url.ForeColor = System.Drawing.Color.White;
+            this.btnReindexProduct_url.Location = new System.Drawing.Point(218, 32);
+            this.btnReindexProduct_url.Name = "btnReindexProduct_url";
+            this.btnReindexProduct_url.Size = new System.Drawing.Size(102, 23);
+            this.btnReindexProduct_url.TabIndex = 0;
+            this.btnReindexProduct_url.TabStop = false;
+            this.btnReindexProduct_url.Text = "product_url";
+            this.btnReindexProduct_url.UseVisualStyleBackColor = false;
+            this.btnReindexProduct_url.Click += new System.EventHandler(this.btnReindexProduct_url_Click);
+            // 
+            // btnReindexCategory_Flat
+            // 
+            this.btnReindexCategory_Flat.BackColor = System.Drawing.Color.Teal;
+            this.btnReindexCategory_Flat.FlatAppearance.BorderSize = 0;
+            this.btnReindexCategory_Flat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnReindexCategory_Flat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexCategory_Flat.ForeColor = System.Drawing.Color.White;
+            this.btnReindexCategory_Flat.Location = new System.Drawing.Point(1, 61);
+            this.btnReindexCategory_Flat.Name = "btnReindexCategory_Flat";
+            this.btnReindexCategory_Flat.Size = new System.Drawing.Size(102, 23);
+            this.btnReindexCategory_Flat.TabIndex = 0;
+            this.btnReindexCategory_Flat.TabStop = false;
+            this.btnReindexCategory_Flat.Text = "category_flat";
+            this.btnReindexCategory_Flat.UseVisualStyleBackColor = false;
+            this.btnReindexCategory_Flat.Click += new System.EventHandler(this.btnReindexCategory_Flat_Click);
+            // 
+            // btnReindexProduct_Flat
+            // 
+            this.btnReindexProduct_Flat.BackColor = System.Drawing.Color.Teal;
+            this.btnReindexProduct_Flat.FlatAppearance.BorderSize = 0;
+            this.btnReindexProduct_Flat.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnReindexProduct_Flat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexProduct_Flat.ForeColor = System.Drawing.Color.White;
+            this.btnReindexProduct_Flat.Location = new System.Drawing.Point(326, 32);
+            this.btnReindexProduct_Flat.Name = "btnReindexProduct_Flat";
+            this.btnReindexProduct_Flat.Size = new System.Drawing.Size(102, 23);
+            this.btnReindexProduct_Flat.TabIndex = 0;
+            this.btnReindexProduct_Flat.TabStop = false;
+            this.btnReindexProduct_Flat.Text = "product_flat";
+            this.btnReindexProduct_Flat.UseVisualStyleBackColor = false;
+            this.btnReindexProduct_Flat.Click += new System.EventHandler(this.btnReindexProduct_Flat_Click);
+            // 
+            // btnReindexCategory_product
+            // 
+            this.btnReindexCategory_product.BackColor = System.Drawing.Color.Teal;
+            this.btnReindexCategory_product.FlatAppearance.BorderSize = 0;
+            this.btnReindexCategory_product.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnReindexCategory_product.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexCategory_product.ForeColor = System.Drawing.Color.White;
+            this.btnReindexCategory_product.Location = new System.Drawing.Point(110, 61);
+            this.btnReindexCategory_product.Name = "btnReindexCategory_product";
+            this.btnReindexCategory_product.Size = new System.Drawing.Size(102, 23);
+            this.btnReindexCategory_product.TabIndex = 0;
+            this.btnReindexCategory_product.TabStop = false;
+            this.btnReindexCategory_product.Text = "category_product";
+            this.btnReindexCategory_product.UseVisualStyleBackColor = false;
+            this.btnReindexCategory_product.Click += new System.EventHandler(this.btnReindexCategory_product_Click);
+            // 
+            // btnReindexProduct_price
+            // 
+            this.btnReindexProduct_price.BackColor = System.Drawing.Color.Teal;
+            this.btnReindexProduct_price.FlatAppearance.BorderSize = 0;
+            this.btnReindexProduct_price.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnReindexProduct_price.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexProduct_price.ForeColor = System.Drawing.Color.White;
+            this.btnReindexProduct_price.Location = new System.Drawing.Point(110, 32);
+            this.btnReindexProduct_price.Name = "btnReindexProduct_price";
+            this.btnReindexProduct_price.Size = new System.Drawing.Size(102, 23);
+            this.btnReindexProduct_price.TabIndex = 0;
+            this.btnReindexProduct_price.TabStop = false;
+            this.btnReindexProduct_price.Text = "product_price";
+            this.btnReindexProduct_price.UseVisualStyleBackColor = false;
+            this.btnReindexProduct_price.Click += new System.EventHandler(this.btnReindexProduct_price_Click);
+            // 
+            // btnReindexStock
+            // 
+            this.btnReindexStock.BackColor = System.Drawing.Color.Teal;
+            this.btnReindexStock.FlatAppearance.BorderSize = 0;
+            this.btnReindexStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnReindexStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexStock.ForeColor = System.Drawing.Color.White;
+            this.btnReindexStock.Location = new System.Drawing.Point(326, 61);
+            this.btnReindexStock.Name = "btnReindexStock";
+            this.btnReindexStock.Size = new System.Drawing.Size(102, 23);
+            this.btnReindexStock.TabIndex = 0;
+            this.btnReindexStock.TabStop = false;
+            this.btnReindexStock.Text = "stock";
+            this.btnReindexStock.UseVisualStyleBackColor = false;
+            this.btnReindexStock.Click += new System.EventHandler(this.btnReindexStock_Click);
+            // 
+            // btnReindexProduct_Attribute
+            // 
+            this.btnReindexProduct_Attribute.BackColor = System.Drawing.Color.Teal;
+            this.btnReindexProduct_Attribute.FlatAppearance.BorderSize = 0;
+            this.btnReindexProduct_Attribute.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnReindexProduct_Attribute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexProduct_Attribute.ForeColor = System.Drawing.Color.White;
+            this.btnReindexProduct_Attribute.Location = new System.Drawing.Point(1, 32);
+            this.btnReindexProduct_Attribute.Name = "btnReindexProduct_Attribute";
+            this.btnReindexProduct_Attribute.Size = new System.Drawing.Size(102, 23);
+            this.btnReindexProduct_Attribute.TabIndex = 0;
+            this.btnReindexProduct_Attribute.TabStop = false;
+            this.btnReindexProduct_Attribute.Text = "product_attribute";
+            this.btnReindexProduct_Attribute.UseVisualStyleBackColor = false;
+            this.btnReindexProduct_Attribute.Click += new System.EventHandler(this.btnProductAttribuut_Click);
+            // 
+            // btnReindexCatalogUrl
+            // 
+            this.btnReindexCatalogUrl.BackColor = System.Drawing.Color.Teal;
+            this.btnReindexCatalogUrl.FlatAppearance.BorderSize = 0;
+            this.btnReindexCatalogUrl.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.btnReindexCatalogUrl.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnReindexCatalogUrl.ForeColor = System.Drawing.Color.White;
+            this.btnReindexCatalogUrl.Location = new System.Drawing.Point(1, 90);
+            this.btnReindexCatalogUrl.Name = "btnReindexCatalogUrl";
+            this.btnReindexCatalogUrl.Size = new System.Drawing.Size(102, 23);
+            this.btnReindexCatalogUrl.TabIndex = 0;
+            this.btnReindexCatalogUrl.TabStop = false;
+            this.btnReindexCatalogUrl.Text = "catalog_url";
+            this.btnReindexCatalogUrl.UseVisualStyleBackColor = false;
+            this.btnReindexCatalogUrl.Click += new System.EventHandler(this.btnReindexCatalogUrl_Click);
+            // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(54)))), ((int)(((byte)(54)))), ((int)(((byte)(54)))));
+            this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(629, 567);
             this.Controls.Add(this.lblConnection);
             this.Controls.Add(this.lblTimerTick);
@@ -563,15 +586,6 @@
         private System.Windows.Forms.TextBox txtBoxInput;
         private System.Windows.Forms.Label lblCommandText;
         private System.Windows.Forms.Button btnCmd1;
-        private System.Windows.Forms.Button btnReindexProduct_Attribute;
-        private System.Windows.Forms.Button btnReindexProduct_price;
-        private System.Windows.Forms.Button btnReindexProduct_url;
-        private System.Windows.Forms.Button btnReindexProduct_Flat;
-        private System.Windows.Forms.Button btnReindexCategory_Flat;
-        private System.Windows.Forms.Button btnReindexCategory_product;
-        private System.Windows.Forms.Button btnReindexCatalogSearchFullText;
-        private System.Windows.Forms.Button btnReindexStock;
-        private System.Windows.Forms.Button btnReindexCatalogUrl;
         private System.Windows.Forms.Panel pnlIndex;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button btnReindexShow;
@@ -583,6 +597,15 @@
         private System.Windows.Forms.Label lblMin;
         private System.Windows.Forms.Timer refreshTimer;
         private System.Windows.Forms.Label lblTimerTick;
+        private System.Windows.Forms.Button btnReindexCatalogUrl;
+        private System.Windows.Forms.Button btnReindexProduct_Attribute;
+        private System.Windows.Forms.Button btnReindexStock;
+        private System.Windows.Forms.Button btnReindexProduct_price;
+        private System.Windows.Forms.Button btnReindexCategory_product;
+        private System.Windows.Forms.Button btnReindexProduct_Flat;
+        private System.Windows.Forms.Button btnReindexCategory_Flat;
+        private System.Windows.Forms.Button btnReindexProduct_url;
+        private System.Windows.Forms.Button btnReindexCatalogSearchFullText;
     }
 }
 
