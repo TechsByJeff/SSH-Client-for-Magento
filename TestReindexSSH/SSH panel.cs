@@ -20,7 +20,6 @@ namespace TestReindexSSH
         string host ;
         string password ;
         string username ;
-        string connection;
         int port = 22;
 
         private Point lastLocation;
@@ -111,6 +110,7 @@ namespace TestReindexSSH
         // leegt txtOutput en voert het commando aan en zet de backgroundworker aan.
         private void btnUitvoeren_Click(object sender, EventArgs e)
         {
+            DisableButtons();
             rTxtBoxOutput.Text = "";
             backgroundWorker.RunWorkerAsync();
 
@@ -123,60 +123,43 @@ namespace TestReindexSSH
         {
             var cmd = SSH.client.CreateCommand(txtBoxInput.Text);
             var result = cmd.Execute();
-            this.Invoke(new Action(() =>
-            {
-                rTxtBoxOutput.Text += result.ToString();
-           
-                var reader = new StreamReader(cmd.ExtendedOutputStream);
-                rTxtBoxOutput.Text += "\n" + reader.ReadToEnd();
-            }
-             ));
-
+            backgroundWorker.ReportProgress(0, result);
+            
+                    using (var reader = new StreamReader(cmd.ExtendedOutputStream))
+                    // rTxtBoxOutput.Text += "\n" + reader.ReadToEnd();
+                    backgroundWorker.ReportProgress(0, reader.ReadToEnd());
     }
 
         public void backgroundWorker_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             ExecuteCommand();
+           
         }
 
         private void backgroundWorker_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
         {
-            // moet hier nog aan werken
+            rTxtBoxOutput.Text += e.UserState;
         }
 
         // Zet alle knoppen aan
         private void EnableButtons()
         {
-            btnCmd1.Enabled = true;
-            btnLogin.Enabled = true;
-            btnLogout.Enabled = true;
-            btnReindexCatalogSearchFullText.Enabled = true;
-            btnReindexCatalogUrl.Enabled = true;
-            btnReindexCategory_Flat.Enabled = true;
-            btnReindexCategory_product.Enabled = true;
-            btnReindexProduct_Attribute.Enabled = true;
-            btnReindexProduct_price.Enabled = true;
-            btnReindexProduct_url.Enabled = true;
-            btnReindexStock.Enabled = true;
-            btnReindexProduct_Flat.Enabled = true;
+            foreach (Control item in pnlIndex.Controls)
+            {
+                item.Enabled = true;
+            }
         }
 
         // Zet alle knoppen uit
         private void DisableButtons()
         {
-            btnCmd1.Enabled = false;
-            btnLogin.Enabled = false;
-            btnLogout.Enabled = false;
-            btnReindexCatalogSearchFullText.Enabled = false;
-            btnReindexCatalogUrl.Enabled = false;
-            btnReindexCategory_Flat.Enabled = false;
-            btnReindexCategory_product.Enabled = false;
-            btnReindexProduct_Attribute.Enabled = false;
-            btnReindexProduct_price.Enabled = false;
-            btnReindexProduct_url.Enabled = false;
-            btnReindexStock.Enabled = false;
-            btnReindexProduct_Flat.Enabled = false;
+            foreach (Control item in pnlIndex.Controls)
+            {
+                item.Enabled = false;
+            }
         }
+
+
 
         private void backgroundWorker_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
@@ -186,9 +169,11 @@ namespace TestReindexSSH
             lblStatus.ForeColor = Color.Green;
         }
 
+        #region commmands
+
         private void btnProductAttribuut_Click(object sender, EventArgs e)
         {
-            txtBoxInput.Text = "php questcontrol.net/shell/indexer.php -- -reindex cataloginventory_stock";
+             txtBoxInput.Text = "php questcontrol.net/shell/indexer.php -- -reindex cataloginventory_stock";
         }
 
         private void btnReindexAll_Click(object sender, EventArgs e)
@@ -235,6 +220,8 @@ namespace TestReindexSSH
         {
             txtBoxInput.Text = "php questcontrol.net/shell/indexer.php -- -reindex cataloginventory_stock";
         }
+
+        #endregion commands
 
         private void btnReindexShow_Click(object sender, EventArgs e)
         {
