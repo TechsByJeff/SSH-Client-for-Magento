@@ -260,7 +260,7 @@ namespace TestReindexSSH
         {
             mouseDown = false;
         }
-
+        
         private void lblMin_Click(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Minimized;
